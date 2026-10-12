@@ -1,0 +1,93 @@
+/* EXAM EASY · web de captura · Copyright (c) 2026 Miguel Usabel */
+:root {
+  --fondo: #f4f5f7;
+  --tarjeta: #ffffff;
+  --texto: #1b1f23;
+  --texto2: #5b6470;
+  --borde: #d6dbe1;
+  --acento: #1f6feb;
+  --acento-texto: #ffffff;
+  --aviso-fondo: #fff4d6;
+  --aviso-borde: #e0b94a;
+  --ok: #1a7f37;
+  --mal: #b42318;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0f1115;
+    --tarjeta: #181c22;
+    --texto: #e6e9ee;
+    --texto2: #9aa4b1;
+    --borde: #2b323c;
+    --acento: #4c8dff;
+    --aviso-fondo: #3a2e0f;
+    --aviso-borde: #b8962e;
+    --ok: #3fb950;
+    --mal: #f85149;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: 0 16px calc(24px + env(safe-area-inset-bottom));
+  max-width: 560px;
+  margin-inline: auto;
+}
+header { padding: 20px 0 8px; }
+h1 { font-size: 1.5rem; margin: 0 0 4px; }
+h2 { font-size: 1.05rem; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+.sub { margin: 0; color: var(--texto2); }
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 12px 0;
+}
+.campos { display: grid; gap: 10px; }
+label { display: grid; gap: 4px; font-size: 0.9rem; color: var(--texto2); }
+input {
+  font: inherit; color: var(--texto);
+  background: var(--fondo);
+  border: 1px solid var(--borde); border-radius: 8px;
+  padding: 10px 12px; width: 100%;
+}
+input:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+.resumen { margin: 0 0 6px; font-weight: 600; }
+.enlace { background: none; border: 0; color: var(--acento); padding: 0; font: inherit; cursor: pointer; }
+.acciones { display: grid; gap: 8px; margin-top: 10px; }
+button, .boton {
+  font: inherit; font-weight: 600;
+  border: 1px solid var(--borde); border-radius: 10px;
+  background: var(--tarjeta); color: var(--texto);
+  padding: 13px 14px; cursor: pointer; text-align: center; text-decoration: none; display: block; width: 100%;
+}
+button.principal, .boton.principal { background: var(--acento); color: var(--acento-texto); border-color: var(--acento); }
+button:disabled, .boton[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+.ayuda { font-size: 0.88rem; color: var(--texto2); margin: 8px 0 0; }
+.contador {
+  background: var(--acento); color: var(--acento-texto);
+  border-radius: 999px; font-size: 0.8rem; padding: 1px 8px;
+}
+.paginas { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.paginas li {
+  display: grid; grid-template-columns: 64px 1fr auto; gap: 10px; align-items: center;
+  border: 1px solid var(--borde); border-radius: 10px; padding: 6px;
+}
+.paginas img { width: 64px; height: 84px; object-fit: cover; border-radius: 6px; background: var(--fondo); }
+.paginas .info { font-size: 0.9rem; }
+.paginas .info b { display: block; }
+.paginas .ok { color: var(--ok); }
+.paginas .dudosa { color: var(--mal); }
+.paginas .mini { display: grid; gap: 4px; }
+.paginas .mini button { padding: 6px 10px; font-size: 0.85rem; font-weight: 500; }
+.aviso { background: var(--aviso-fondo); border-color: var(--aviso-borde); }
+.aviso img { width: 100%; max-height: 50vh; object-fit: contain; border-radius: 8px; background: #000; }
+.aviso ul { margin: 10px 0 0; padding-left: 20px; }
+.pasos { padding-left: 20px; margin: 0; display: grid; gap: 14px; }
+.estado { min-height: 1.4em; color: var(--texto2); font-size: 0.9rem; text-align: center; }
+footer { color: var(--texto2); font-size: 0.8rem; text-align: center; padding: 8px 0; }

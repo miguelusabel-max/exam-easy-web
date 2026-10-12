@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Entrega de examen</title>
+<meta name="description" content="EXAM EASY: fotografía tu examen, comprueba que se lee bien y entrégalo en un único PDF.">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<header>
+  <h1>Entrega de examen</h1>
+  <p class="sub">Haz una foto de cada página, revisa que se lea bien y entrega un único PDF.</p>
+</header>
+
+<main>
+  <section id="sec-examen" class="tarjeta">
+    <h2>Examen</h2>
+    <p id="resumen-examen" class="resumen" hidden></p>
+    <button id="btn-editar-examen" class="enlace" type="button" hidden>Cambiar</button>
+    <div id="form-examen" class="campos">
+      <label>Profesor <input id="profesor" autocomplete="off"></label>
+      <label>Curso <input id="curso" autocomplete="off"></label>
+      <label>Asignatura <input id="asignatura" autocomplete="off"></label>
+      <label>Parcial <input id="parcial" autocomplete="off" placeholder="PARCIAL_1"></label>
+      <label>Examen <input id="examen" autocomplete="off" placeholder="EXAM_1"></label>
+      <label>Enlace del formulario de entrega <input id="formulario" inputmode="url" placeholder="https://forms.gle/..."></label>
+    </div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Alumno</h2>
+    <div class="campos">
+      <label>Apellidos <input id="apellidos" autocomplete="family-name" required></label>
+      <label>Nombre <input id="nombre" autocomplete="given-name" required></label>
+    </div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Páginas <span id="n-paginas" class="contador">0</span></h2>
+    <ol id="lista-paginas" class="paginas"></ol>
+    <div class="acciones">
+      <button id="btn-foto" class="principal" type="button">Hacer foto de la página <span id="siguiente">1</span></button>
+      <button id="btn-galeria" type="button">Elegir imagen guardada</button>
+    </div>
+    <input id="input-camara" type="file" accept="image/*" capture="environment" hidden>
+    <input id="input-galeria" type="file" accept="image/*" multiple hidden>
+    <p class="ayuda">Consejos: hoja entera dentro del encuadre con un margen alrededor, buena luz, sin sombras, móvil quieto.</p>
+  </section>
+
+  <section id="aviso" class="tarjeta aviso" hidden>
+    <h2>Revisa esta foto</h2>
+    <img id="aviso-img" alt="Vista previa de la foto">
+    <ul id="aviso-lista"></ul>
+    <div class="acciones">
+      <button id="btn-repetir" class="principal" type="button">Repetir la foto</button>
+      <button id="btn-usar" type="button">Usar igualmente</button>
+    </div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>Entregar</h2>
+    <ol class="pasos">
+      <li>
+        <button id="btn-pdf" class="principal" type="button" disabled>Guardar el PDF</button>
+        <p id="pdf-info" class="ayuda" hidden></p>
+      </li>
+      <li>
+        <a id="btn-formulario" class="boton" target="_blank" rel="noopener" aria-disabled="true">Abrir el formulario de entrega</a>
+        <p class="ayuda">En el formulario, entra con tu cuenta del colegio, pulsa <b>Añadir archivo</b> y elige el PDF que acabas de guardar (carpeta Descargas o Archivos).</p>
+      </li>
+    </ol>
+    <button id="btn-compartir" type="button" hidden>Compartir el PDF con otra aplicación</button>
+  </section>
+
+  <p id="estado" class="estado" role="status" aria-live="polite"></p>
+</main>
+
+<footer>
+  <p>Nada sale de tu móvil hasta que subes el PDF al formulario. EXAM EASY <span id="version"></span>.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
