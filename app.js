@@ -291,6 +291,6 @@
   });
 
   actualizarBotones();
-  // para pruebas automáticas: window.examEasy.analizar(imagen) devuelve {avisos, media, nitidez}
-  window.examEasy = { version: VERSION, analizar };
+  // para pruebas automáticas: analizar(imagen) devuelve {avisos, media, nitidez}; generarPdf() devuelve el Blob
+  window.examEasy = { version: VERSION, analizar, generarPdf, paginas: () => estado.paginas.length };
 })();
